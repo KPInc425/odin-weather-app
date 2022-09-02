@@ -6,6 +6,7 @@ import './style.css';
 let lat;
 let long;
 let postalCode;
+let cityName;
 let stateName;
 let countryCode = '';
 
@@ -51,6 +52,7 @@ async function setCurrentLocation() {
 
     // Set Global lat, long values
     stateName = getState(postalCode);
+    cityName = locationData.name;
     lat = locationData.lat;
     long = locationData.lon;
     // console.log(lat + " " + long);
@@ -153,7 +155,7 @@ function displayWeatherData(weatherData) {
     const sunsetText = document.querySelector('#sunsetText');
     sunsetText.textContent = sunsetTime;
     const locationText = document.querySelector('#locationText');
-    locationText.textContent = `${location}, ${stateName}`;
+    locationText.textContent = `${cityName}, ${stateName}`;
     const timeText = document.querySelector('#timeText');
     timeText.textContent = timeOfCalc;
 }
