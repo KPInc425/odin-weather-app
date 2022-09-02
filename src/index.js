@@ -62,7 +62,7 @@ function error(error) {
 async function getLocation() {
     try {
         // fetch coords from GeoAPI
-        let response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`, {mode: 'cors'});
+        let response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`, {mode: 'cors'});
         // format resolved promise to json
         let json = await response.json();
         return json;
@@ -100,9 +100,9 @@ function cleanData(dataJSON) {
         description: dataJSON.weather[0].description,
         windSpeed: convertToMPH(dataJSON.wind.speed).toFixed(2) + 'mph',
         windDirection: convertToDirection(dataJSON.wind.deg),
-        dateTime: new Date(dataJSON.dt * 1000),
-        sunRise: new Date(dataJSON.sys.sunrise * 1000),
-        sunSet: new Date(dataJSON.sys.sunset * 1000),
+        dateTime: new Date(dataJSON.dt * 1000).toTimeString().slice(0,8), // Change these to function
+        sunRise: new Date(dataJSON.sys.sunrise * 1000).toTimeString().slice(0,8),
+        sunSet: new Date(dataJSON.sys.sunset * 1000).toTimeString().slice(0,8),
         visibility: (dataJSON.visibility * 0.001) + 'km',
         rain1h: (dataJSON.rain !== undefined) ? dataJSON.rain['1h'] + 'mm' : '0mm',
         rain3h: (dataJSON.rain !== undefined) ? dataJSON.rain['3h'] + 'mm' : '0mm',
@@ -155,7 +155,7 @@ function displayWeatherData(weatherData) {
         }
     }
 
-    // Populate weather data
+    // Populate weather data (this is unruly, figure out how to refactor)
     const tempCurrentText = document.querySelector('#tempCurrentText');
     console.log(tempCurrentText);
     tempCurrentText.textContent = currentTemp;
