@@ -6,3 +6,75 @@ body {
 .testing {
     color: white;
 }
+
+.userInputContainer {
+    margin: 0 auto;
+    justify-content: center;
+    grid-column-end: 3;
+    column-gap: 10px;
+}
+
+.fieldset {
+    position: relative;
+    border: 1px solid white;
+    padding: 20px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.fieldset h1 {
+    position: absolute;
+    top: 0;
+    font-size: 18px;
+    line-height: 1;
+    margin: -9px 0 0; /* half of font-size */
+    background: black;
+    padding: 0 3px;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 1px solid green; */
+    grid-column-start: 1;
+    text-align: center;
+}
+
+.flexContainer p {
+    padding: 10px;
+    border: 1px dotted blue;
+}
+
+.flex2 * {
+    flex: 2;
+}
+
+.flex3 * {
+    flex: 3;
+}
+
+.flex4 * {
+    flex: 4;
+}
+
+.hidden {
+    display: none;
+}
+
+.windDataContainer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid purple;
+    position: relative;
+    width: 100%;
+    /* padding: 20px; */
+    text-align: center;
+    margin: 16px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto 25%;
+    justify-items: stretch;
+    /* border: 1px solid pink; */
+}
