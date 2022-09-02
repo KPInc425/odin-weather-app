@@ -72,9 +72,26 @@ body {
     margin: 16px 0;
 }
 
+.windDataContainer > .dataContainer p {
+    /* padding-top: 20px; */
+    margin: 27px 0 5px 0;
+}
+
 .grid {
     display: grid;
     grid-template-columns: auto 25%;
     justify-items: stretch;
     /* border: 1px solid pink; */
+}
+
+.dataContainer {
+    position: relative;
+}
+
+.littleLabel {
+    background-color: black;
+    position: absolute;
+    font-size: 75%;
+    left: 5%;
+    margin-top: 10px;
 }
