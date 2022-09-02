@@ -20,6 +20,8 @@ body {
     padding: 20px;
     width: 50%;
     margin: 0 auto;
+    min-width: 575px;
+
 }
 
 .fieldset h1 {
@@ -79,7 +81,7 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: auto 25%;
+    grid-template-columns: minmax(400px, auto) 25%;
     justify-items: stretch;
     /* border: 1px solid pink; */
 }
