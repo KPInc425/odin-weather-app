@@ -17,10 +17,11 @@ async function getLocation(postCode, countryCode, units) {
 
 }
 
-async function getWeatherData(lat, long) {
+async function getWeatherData(lat, long, units) {
     try {
+        units = units || 'imperial';
         // fetch weather data from OpenWeatherAPI
-        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`, {mode: 'cors'});
+        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=${units}&appid=${apiKey}`, {mode: 'cors'});
         // console.log(response);
         // format resolved promise to json
         let json = await response.json();
