@@ -5,6 +5,7 @@ Async/Await (promise) practice
 
 TODO
 
+-Add api fetch for forecast and display it
 -Add ability to choose country
 -add search by city name input (not as accurate)
 
