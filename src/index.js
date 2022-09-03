@@ -19,7 +19,16 @@ const btnLocalWeather = document.querySelector('#btnLocalWeather');
 
 
 
-btnLocalWeather.addEventListener('click', async () => {   
+btnLocalWeather.addEventListener('click', weatherApp);
+inputPostalCode.addEventListener('keyup', (e) => {
+    // console.log(e.key);
+    if (e.key === 'Enter') {
+        weatherApp();
+    }
+});
+
+
+async function weatherApp() {
     // when button clicked > grab value from input text box
     postalCode = inputPostalCode.value;
     inputPostalCode.value = "";
@@ -49,8 +58,7 @@ btnLocalWeather.addEventListener('click', async () => {
             message: 'You have not entered a Postal Code.'
         });
     }
-})
-
+}
 
 async function setCurrentLocation() {
     // get location from GeoLocationAPI

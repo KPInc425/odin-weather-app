@@ -1,4 +1,4 @@
-// convert from kelvin to fahrenheit
+// convert from kelvin to fahrenheit (No longer needed with units option from api)
 function convertToF(numKelvin) {
     return 1.8*(numKelvin - 273) + 32;
 }
@@ -260,7 +260,7 @@ function formatTime(timeToFormat) {
         formattedTime = timeToFormat + "PM";
         return formattedTime;
     }
-    
+
     formattedTime = timeToFormat + "AM";
     console.log(formattedTime);
     return formattedTime;
