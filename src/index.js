@@ -17,7 +17,11 @@ let countryCode = '';
 const inputPostalCode = document.querySelector('#inputPostalCode');
 const btnLocalWeather = document.querySelector('#btnLocalWeather');
 
-
+// Initialize App
+const init = (() => {
+    inputPostalCode.value = '93301';
+    weatherApp();
+})();
 
 btnLocalWeather.addEventListener('click', weatherApp);
 inputPostalCode.addEventListener('keyup', (e) => {
@@ -27,9 +31,9 @@ inputPostalCode.addEventListener('keyup', (e) => {
     }
 });
 
-
 async function weatherApp() {
     // when button clicked > grab value from input text box
+    
     postalCode = inputPostalCode.value;
     inputPostalCode.value = "";
 
