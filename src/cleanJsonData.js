@@ -2,7 +2,6 @@ import { convertToDirection, convertToInches, convertToMPH, formatTime } from ".
 
 function cleanData(dataJSON) {
     // return cleaned data object from JSON
-    formatTime(new Date(dataJSON.dt * 1000).toTimeString().slice(0,8));
     return {
         tempCurrent: Math.round(dataJSON.main.temp) + 'F°',
         tempFeels: Math.round(dataJSON.main.feels_like) + 'F°',
@@ -12,6 +11,7 @@ function cleanData(dataJSON) {
         pressure: convertToInches(dataJSON.main.pressure).toFixed(2),
         cloudsPercent: dataJSON.clouds.all + '%', 
         description: dataJSON.weather[0].description,
+        icon: dataJSON.weather[0].icon,
         windSpeed: convertToMPH(dataJSON.wind.speed).toFixed(2) + 'mph',
         windDirection: convertToDirection(dataJSON.wind.deg),
         dateTime: formatTime(new Date(dataJSON.dt * 1000).toTimeString().slice(0,8)), // Change these to function

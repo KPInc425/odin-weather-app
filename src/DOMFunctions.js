@@ -3,6 +3,7 @@ function displayWeatherData(weatherData) {
     // initialize variables for better readability
     let currentTemp = weatherData.data.tempCurrent;
     let weatherDescription = weatherData.data.description;
+    let weatherIcon = weatherData.data.icon;
     let highTemp = weatherData.data.tempHigh;
     let lowTemp = weatherData.data.tempLow;
     let feelsLikeTemp = weatherData.data.tempFeels;
@@ -51,6 +52,9 @@ function displayWeatherData(weatherData) {
     tempCurrentText.textContent = currentTemp;
     const weatherDescriptionText = document.querySelector('#weatherDescriptionText');
     weatherDescriptionText.textContent = weatherDescription;
+    const weatherIconText = document.querySelector('.weatherIcon');
+    weatherIconText.style.background = `url(https://openweathermap.org/img/wn/${weatherIcon}@2x.png)`;
+    weatherIconText.style.backgroundSize = 'cover';
     const tempHighText = document.querySelector('#tempHighText');
     tempHighText.textContent = highTemp;
     const tempLowText = document.querySelector('#tempLowText');

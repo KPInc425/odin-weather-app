@@ -25,7 +25,7 @@ async function getWeatherData(lat, long, units) {
         // console.log(response);
         // format resolved promise to json
         let json = await response.json();
-        // console.log(json);
+        console.log(json);
         return json;
     } catch(error) {
         errorHandler(error);
