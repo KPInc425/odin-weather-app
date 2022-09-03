@@ -33,8 +33,23 @@ async function getWeatherData(lat, long, units) {
 
 }
 
+async function getWeatherGif(description) {
+    try {
+        description = description + " weather";
+        console.log(description);
+        let response = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=0JvtDfunbRZAukBB5R94oBnUtDprGS0i&s=' + description, {mode: 'cors'});
+        let json = await response.json();
+        console.log(response);
+        console.log(json.data.images.original.url)
+        return json.data.images.original.url;
+    } catch (err) {
+        errorHandler(err);
+    }
+}
+
 
 export {
     getLocation,
     getWeatherData,
+    getWeatherGif,
 }

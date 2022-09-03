@@ -237,18 +237,18 @@ function getState(zipString) {
 }
 
 function formatTime(timeToFormat) {
-    console.log(timeToFormat);
+    // console.log(timeToFormat);
     let hour = Number(timeToFormat.slice(0,2));
     let minute = timeToFormat.slice(3,5);
     let seconds = timeToFormat.slice(6,8);
     let formattedTime;
-    console.log(hour);
+    // console.log(hour);
     if (hour > 13) {
         hour -= 12;
-        console.log(typeof hour);
+        // console.log(typeof hour);
         hour = hour.toString();
         formattedTime = hour + ":" + minute + ":" + seconds + "PM";
-        console.log(formattedTime);
+        // console.log(formattedTime);
         return formattedTime;
     }
     if (hour < 10) {
@@ -262,7 +262,7 @@ function formatTime(timeToFormat) {
     }
 
     formattedTime = timeToFormat + "AM";
-    console.log(formattedTime);
+    // console.log(formattedTime);
     return formattedTime;
 }
   

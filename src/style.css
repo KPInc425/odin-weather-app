@@ -12,6 +12,8 @@ body {
     justify-content: center;
     grid-column-end: 3;
     column-gap: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
 }
 
 .fieldset {
@@ -45,6 +47,7 @@ body {
 .flexContainer p {
     padding: 10px;
     border: 1px dotted blue;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .flex2 * {
@@ -72,6 +75,7 @@ body {
     /* padding: 20px; */
     text-align: center;
     margin: 16px 0;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .windDataContainer > .dataContainer p {

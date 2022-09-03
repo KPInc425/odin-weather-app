@@ -40,6 +40,11 @@ function displayWeatherData(weatherData) {
         }
     }
 
+    const fieldSetContainer = document.querySelector('.fieldset');
+    fieldSetContainer.style.background = `black url(${weatherData.weatherGif}) no-repeat center`;
+    fieldSetContainer.style.backgroundSize = 'cover';
+
+
     // Populate weather data (this is unruly, figure out how to refactor)
     const tempCurrentText = document.querySelector('#tempCurrentText');
     console.log(tempCurrentText);

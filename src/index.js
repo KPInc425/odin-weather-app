@@ -1,4 +1,4 @@
-import { getLocation, getWeatherData } from './apiFunctions';
+import { getLocation, getWeatherData, getWeatherGif } from './apiFunctions';
 import { cleanData } from './cleanJsonData';
 import { displayWeatherData } from './DOMFunctions';
 import { errorHandler } from './errorHandling';
@@ -46,12 +46,14 @@ async function weatherApp() {
         // get weather data with set location data
         let weatherData = await getWeatherData(lat, long);
         console.log(weatherData);
+        let gifAddress =  await getWeatherGif(weatherData.weather[0].description);
 
         // clean up JSON and return only needed data
         let cleanedData = {
             data: cleanData(weatherData),
             cityName: cityName,
             stateName: stateName,
+            weatherGif: gifAddress,
         }
         console.log(cleanedData);
         displayWeatherData(cleanedData);
@@ -67,7 +69,7 @@ async function weatherApp() {
 async function setCurrentLocation() {
     // get location from GeoLocationAPI
     let locationData = await getLocation(postalCode);
-    console.log(locationData);
+    // console.log(locationData);
 
     // Set Global lat, long values
     stateName = getState(postalCode);
