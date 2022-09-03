@@ -101,3 +101,15 @@ body {
     left: 5%;
     margin-top: 10px;
 }
+
+.loadingWidget{
+    position: absolute;
+    bottom: 2%;
+    right: 5%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 32px;
+    /* height: 64px; */
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+}

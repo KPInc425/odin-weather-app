@@ -41,12 +41,15 @@ async function weatherApp() {
     // check if value is empty
     if (postalCode !== "") {
         // set user input location 
+        showLoadingWidget();
         await setCurrentLocation();
 
         // get weather data with set location data
         let weatherData = await getWeatherData(lat, long);
-        console.log(weatherData);
+
+        // console.log(weatherData);
         let gifAddress =  await getWeatherGif(weatherData.weather[0].description);
+
 
         // clean up JSON and return only needed data
         let cleanedData = {
@@ -55,8 +58,9 @@ async function weatherApp() {
             stateName: stateName,
             weatherGif: gifAddress,
         }
-        console.log(cleanedData);
+        // console.log(cleanedData);
         displayWeatherData(cleanedData);
+        hideLoadingWidget();
         // console.log(weatherData);
     } else {
         errorHandler({
@@ -79,4 +83,18 @@ async function setCurrentLocation() {
     // console.log(lat + " " + long);
 }
 
+function showLoadingWidget() {
+    const weatherApp = document.querySelector('.fieldset');
+    // console.log(weatherApp);
+    const loadingWidget = document.createElement('img');
 
+    loadingWidget.id = 'loadingWidget'
+    loadingWidget.classList.add('loadingWidget');
+    loadingWidget.src = "https://media1.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif?cid=bbfc1e49mgk3jbxodjq4l678y0yz8re86kwacdzkm947vdwv&rid=giphy.gif&ct=g" //"https://media4.giphy.com/media/swhRkVYLJDrCE/giphy.gif?cid=bbfc1e495u73r74bqxz2ggjsjf2olp5u2f9tzpaz3dsw3xbl&rid=giphy.gif&ct=g"
+    weatherApp.appendChild(loadingWidget);
+}
+
+function hideLoadingWidget() {
+    const loadingWidget = document.querySelector('#loadingWidget');
+    loadingWidget.remove();
+}
