@@ -30,7 +30,21 @@ async function getWeatherData(lat, long, units) {
     } catch(error) {
         errorHandler(error);
     }
+}
 
+async function getForecastData(lat, long, units) {
+    try {
+        units = units || 'imperial';
+        // fetch weather data from OpenWeatherAPI
+        let response = await fetch(`api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=${units}&appid=${apiKey}`, {mode: 'cors'});
+        // console.log(response);
+        // format resolved promise to json
+        let json = await response.json();
+        console.log(json);
+        return json;
+    } catch(error) {
+        errorHandler(error);
+    }
 }
 
 async function getWeatherGif(description) {
@@ -52,4 +66,5 @@ export {
     getLocation,
     getWeatherData,
     getWeatherGif,
+    getForecastData,
 }

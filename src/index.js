@@ -3,6 +3,7 @@ import { cleanData } from './cleanJsonData';
 import { displayWeatherData } from './DOMFunctions';
 import { errorHandler } from './errorHandling';
 import { getState } from './helperFunctions';
+import './reset.css';
 import './style.css';
 
 
