@@ -9,6 +9,8 @@ TODO
 -Add ability to choose country
 -add search by city name input (not as accurate)
 -Use daytime/nighttime in giphy fetch
+-Find some gif search term to corrolate with weather descriptions
+
 
 
 BUGS

@@ -1,6 +1,6 @@
-import { getLocation, getWeatherData, getWeatherGif } from './apiFunctions';
+import { getForecastData, getLocation, getWeatherData, getWeatherGif } from './apiFunctions';
 import { cleanData } from './cleanJsonData';
-import { displayWeatherData } from './DOMFunctions';
+import { displayForecastData, displayWeatherData } from './DOMFunctions';
 import { errorHandler } from './errorHandling';
 import { getState } from './helperFunctions';
 import './reset.css';
@@ -48,8 +48,10 @@ async function weatherApp() {
         // get weather data with set location data
         let weatherData = await getWeatherData(lat, long);
 
+        let forecastData = await getForecastData(lat, long);
+
         // console.log(weatherData);
-        let gifAddress =  await getWeatherGif(weatherData.weather[0].description);
+        let gifAddress =  await getWeatherGif(weatherData.weather[0].description, weatherData.main.temp);
 
 
         // clean up JSON and return only needed data
@@ -61,6 +63,7 @@ async function weatherApp() {
         }
         // console.log(cleanedData);
         displayWeatherData(cleanedData);
+        displayForecastData();
         hideLoadingWidget();
         // console.log(weatherData);
     } else {

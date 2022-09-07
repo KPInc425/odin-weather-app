@@ -1,3 +1,5 @@
+import { errorHandler } from "./errorHandling";
+
 // convert from kelvin to fahrenheit (No longer needed with units option from api)
 function convertToF(numKelvin) {
     return 1.8*(numKelvin - 273) + 32;
@@ -265,6 +267,28 @@ function formatTime(timeToFormat) {
     // console.log(formattedTime);
     return formattedTime;
 }
+
+function getNext5WeekDays() {
+    console.log(new Date().getDay());
+    switch(new Date().getDay()) {
+        case 0:
+            return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        case 1:
+            return ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+        case 2:
+            return ['Tue','Wed','Thu','Fri','Sat','Sun','Mon'];
+        case 3:
+            return ['Wed','Thu','Fri','Sat','Sun','Mon','Tue'];
+        case 4:
+            return ['Thu','Fri','Sat','Sun','Mon','Tue','Wed'];
+        case 5:
+            return ['Fri','Sat','Sun','Mon','Tue','Wed','Thu'];
+        case 6:
+            return ['Sat','Sun','Mon','Tue','Wed','Thu','Fri'];
+        default: 
+            errorHandler({code: 42, message: "Day was not found."});
+    }
+}
   
 export {
     convertToF,
@@ -273,4 +297,5 @@ export {
     convertToDirection,
     getState,
     formatTime,
+    getNext5WeekDays,
 }
