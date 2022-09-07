@@ -85,50 +85,51 @@ function displayWeatherData(weatherData) {
     timeText.textContent = timeOfCalc;
 }
 
-function displayForecastData(forecastData) {
-    const forecastDays = getNext5WeekDays();
-    // Get Ref to forecast container
-    const forecastContainer = document.querySelector('#forecastWeatherContainer');
+// function displayForecastData(forecastData) {
+//     const forecastDays = getNext5WeekDays();
+//     // Get Ref to forecast container
+//     const forecastContainer = document.querySelector('#forecastWeatherContainer');
+//     forecastContainer.innerHTML = "";
 
-    // Create and append forecast days container
-    for (let i = 0; i < 5; i++) {
-        let tempDayContainer = document.createElement('div');
-        tempDayContainer.id = `day${i}Container`;
-        tempDayContainer.className = "forecastDayContainer gridForecast"
+//     // Create and append forecast days container
+//     for (let i = 0; i < 5; i++) {
+//         let tempDayContainer = document.createElement('div');
+//         tempDayContainer.id = `day${i}Container`;
+//         tempDayContainer.className = "forecastDayContainer gridForecast"
 
-        let tempDayLabel = document.createElement('h3');
-        tempDayLabel.classList.add('dayLabel');
-        tempDayLabel.textContent = forecastDays[i];
+//         let tempDayLabel = document.createElement('h3');
+//         tempDayLabel.classList.add('dayLabel');
+//         tempDayLabel.textContent = forecastDays[i];
 
-        let tempIconContainer = document.createElement('div');
-        tempIconContainer.classList.add('iconContainer');
+//         let tempIconContainer = document.createElement('div');
+//         tempIconContainer.classList.add('iconContainer');
 
-        let tempIconSpan = document.createElement('span');
-        tempIconSpan.classList.add('forecastWeatherIcon');
+//         let tempIconSpan = document.createElement('span');
+//         tempIconSpan.classList.add('forecastWeatherIcon');
 
-        tempIconContainer.appendChild(tempIconSpan);
+//         tempIconContainer.appendChild(tempIconSpan);
 
-        let tempForcastHighTemp = document.createElement('p');
-        tempForcastHighTemp.classList.add('forecastTemp');
-        tempForcastHighTemp.innerHTML = "0°"; // `${forecastData.list[i].tempHigh}°`
+//         let tempForcastHighTemp = document.createElement('p');
+//         tempForcastHighTemp.classList.add('forecastTemp');
+//         tempForcastHighTemp.innerHTML = "0°"; // `${forecastData.list[i].tempHigh}°`
 
-        let tempForcastLowTemp = document.createElement('p');
-        tempForcastLowTemp.classList.add('forecastTemp');
-        tempForcastLowTemp.innerHTML = "0°"; // `${forecastData.list[i].tempLow}°`
+//         let tempForcastLowTemp = document.createElement('p');
+//         tempForcastLowTemp.classList.add('forecastTemp');
+//         tempForcastLowTemp.innerHTML = "0°"; // `${forecastData.list[i].tempLow}°`
 
     
-        tempDayContainer.appendChild(tempDayLabel);
-        tempDayContainer.appendChild(tempIconContainer);
-        tempDayContainer.appendChild(tempForcastHighTemp);
-        tempDayContainer.appendChild(tempForcastLowTemp);
+//         tempDayContainer.appendChild(tempDayLabel);
+//         tempDayContainer.appendChild(tempIconContainer);
+//         tempDayContainer.appendChild(tempForcastHighTemp);
+//         tempDayContainer.appendChild(tempForcastLowTemp);
 
-        forecastContainer.appendChild(tempDayContainer);
-    }
+//         forecastContainer.appendChild(tempDayContainer);
+//     }
 
 
-}
+// }
 
 export {
     displayWeatherData,
-    displayForecastData,
+    // displayForecastData,
 }

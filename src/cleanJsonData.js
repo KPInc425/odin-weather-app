@@ -23,9 +23,40 @@ function cleanData(dataJSON) {
         snow1h: (dataJSON.snow !== undefined) ? dataJSON.snow['1h'] + 'mm' : '0mm',
         snow3h: (dataJSON.snow !== undefined) ? dataJSON.snow['3h'] + 'mm' : '0mm',
         location: dataJSON.name,
-
     }
 }
+
+// function cleanForecast(forecastDataJSON) {
+//     const forecastData = [
+//         {
+//             tempHigh: forecastDataJSON.list[0].,
+//             tempLow: ,
+//             icon: ,
+//         }
+//         {
+//             tempHigh: ,
+//             tempLow: ,
+//             icon: ,
+//         }
+//         {
+//             tempHigh: ,
+//             tempLow: ,
+//             icon: ,
+//         }
+//         {
+//             tempHigh: ,
+//             tempLow: ,
+//             icon: ,
+//         }
+//         {
+//             tempHigh: ,
+//             tempLow: ,
+//             icon: ,
+//         }
+//     ];
+
+//     return forecastData;
+// }
 
 export { cleanData };
 

@@ -64,7 +64,6 @@ async function getWeatherGif(description, temp) {
             description = "Ice Tundra "
         }
 
-
         // console.log(description);
         let response = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=0JvtDfunbRZAukBB5R94oBnUtDprGS0i&s=' + description, {mode: 'cors'});
         let json = await response.json();

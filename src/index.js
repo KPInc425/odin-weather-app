@@ -63,7 +63,8 @@ async function weatherApp() {
         }
         // console.log(cleanedData);
         displayWeatherData(cleanedData);
-        displayForecastData();
+        // Reactivate when figure out how to parse forecast data
+        // displayForecastData();
         hideLoadingWidget();
         // console.log(weatherData);
     } else {
