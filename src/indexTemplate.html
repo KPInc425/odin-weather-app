@@ -10,10 +10,10 @@
     <header>
 
     </header>
-    <main>
-        <div class="content">
-            <div class="fieldset">
-                <h1>KP Apocalypse Weather</h1>
+    <main class="grid h-screen place-items-center">
+        <div class="content container mx-aut">
+            <div class="fieldset p-10">
+                <h1 class="bg-gray-800 bg-opacity-50 p-5 text-center rounded-lg">KP Apocalypse Weather Again</h1>
                 <div class="gridWeather">
                     <div class="mainTempContainer">
                         <div class="flexContainer flex2">
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="windDataContainer">
+                    <div class="windDataContainer rounded-lg">
                         <div class="dataContainer">
                             <h3 class="littleLabel">Wind Speed</h3>
                             <p id="windSpeedText">#MPH</p>
@@ -51,7 +51,7 @@
                             <p id="windDirectionText">N</p>
                         </div>
                     </div>
-                    <div class="weatherIconContainer">
+                    <div class="weatherIconContainer rounded-lg">
                         <div class="dataContainer">
                             <h3 class="littleLabel">Weather Icon</h3>
                             <span class="weatherIcon"></span>
@@ -118,7 +118,7 @@
                             <p id="timeText">TIMEOFCALC</p>
                         </div>
                     </div>
-                    <div class="userInputContainer flexContainer">
+                    <div class="userInputContainer flexContainer rounded-lg">
                         <label for="postalCode">Postal Code</label>
                         <input type="text" name="postalCode" id="inputPostalCode" 
                         placeholder="Enter Postal Code" minlength="5" maxlength="32">
@@ -140,6 +140,6 @@
 
     </footer>
 
-    <script src="index.bundle.js"></script>
+    <script src="main.bundle.js"></script>
 </body>
 </html>

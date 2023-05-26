@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
     background-color: black;
     color: white;
@@ -16,26 +20,6 @@ body {
     padding: 10px;
 }
 
-.fieldset {
-    position: relative;
-    border: 1px solid white;
-    padding: 20px;
-    /* width: 50%; */
-    max-width: 620px;
-    margin: 20px auto;
-    min-width: 575px;
-
-}
-
-.fieldset h1 {
-    position: absolute;
-    top: 0;
-    font-size: 18px;
-    line-height: 1;
-    margin: -9px 0 0; /* half of font-size */
-    background: black;
-    padding: 0 3px;
-}
 
 .flexContainer {
     display: flex;
@@ -48,7 +32,8 @@ body {
 
 .dataContainer p {
     padding: 10px;
-    border: 1px dotted blue;
+    /* border: 1px dotted blue; */
+    border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.5);
     /* margin-top: 10px; */
 }
@@ -73,7 +58,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
     position: relative;
     width: 100%;
     text-align: center;
@@ -94,6 +79,7 @@ body {
 
 .dataContainer {
     position: relative;
+    padding: 1rem;
 }
 
 .littleLabel {
@@ -129,7 +115,7 @@ body {
     grid-column-start: 2;
     grid-row-start: 3;
     grid-row-end: 5;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: rgba(0, 0, 0, 0.5);
     width: 128px;
     height: 128px;

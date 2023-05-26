@@ -26,7 +26,6 @@ const init = (() => {
 
 btnLocalWeather.addEventListener('click', weatherApp);
 inputPostalCode.addEventListener('keyup', (e) => {
-    // console.log(e.key);
     if (e.key === 'Enter') {
         weatherApp();
     }
@@ -50,7 +49,6 @@ async function weatherApp() {
 
         let forecastData = await getForecastData(lat, long);
 
-        // console.log(weatherData);
         let gifAddress =  await getWeatherGif(weatherData.weather[0].description, weatherData.main.temp);
 
 
@@ -61,12 +59,10 @@ async function weatherApp() {
             stateName: stateName,
             weatherGif: gifAddress,
         }
-        // console.log(cleanedData);
         displayWeatherData(cleanedData);
         // Reactivate when figure out how to parse forecast data
         // displayForecastData();
         hideLoadingWidget();
-        // console.log(weatherData);
     } else {
         errorHandler({
             code: 425,
@@ -78,19 +74,16 @@ async function weatherApp() {
 async function setCurrentLocation() {
     // get location from GeoLocationAPI
     let locationData = await getLocation(postalCode);
-    // console.log(locationData);
 
     // Set Global lat, long values
     stateName = getState(postalCode);
     cityName = locationData.name;
     lat = locationData.lat;
     long = locationData.lon;
-    // console.log(lat + " " + long);
 }
 
 function showLoadingWidget() {
     const weatherApp = document.querySelector('.fieldset');
-    // console.log(weatherApp);
     const loadingWidget = document.createElement('img');
 
     loadingWidget.id = 'loadingWidget'

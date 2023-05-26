@@ -239,18 +239,14 @@ function getState(zipString) {
 }
 
 function formatTime(timeToFormat) {
-    // console.log(timeToFormat);
     let hour = Number(timeToFormat.slice(0,2));
     let minute = timeToFormat.slice(3,5);
     let seconds = timeToFormat.slice(6,8);
     let formattedTime;
-    // console.log(hour);
     if (hour > 13) {
         hour -= 12;
-        // console.log(typeof hour);
         hour = hour.toString();
         formattedTime = hour + ":" + minute + ":" + seconds + "PM";
-        // console.log(formattedTime);
         return formattedTime;
     }
     if (hour < 10) {
@@ -264,12 +260,10 @@ function formatTime(timeToFormat) {
     }
 
     formattedTime = timeToFormat + "AM";
-    // console.log(formattedTime);
     return formattedTime;
 }
 
 function getNext5WeekDays() {
-    console.log(new Date().getDay());
     switch(new Date().getDay()) {
         case 0:
             return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];

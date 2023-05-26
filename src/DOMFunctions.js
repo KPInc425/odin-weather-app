@@ -1,7 +1,6 @@
 import { getNext5WeekDays } from "./helperFunctions";
 
 function displayWeatherData(weatherData) {
-    // console.log(weatherData);
     // initialize variables for better readability
     let currentTemp = weatherData.data.tempCurrent;
     let weatherDescription = weatherData.data.description;
@@ -50,7 +49,6 @@ function displayWeatherData(weatherData) {
 
     // Populate weather data (this is unruly, figure out how to refactor)
     const tempCurrentText = document.querySelector('#tempCurrentText');
-    // console.log(tempCurrentText);
     tempCurrentText.textContent = currentTemp;
     const weatherDescriptionText = document.querySelector('#weatherDescriptionText');
     weatherDescriptionText.textContent = weatherDescription;
