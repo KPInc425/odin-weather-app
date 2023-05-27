@@ -2,7 +2,7 @@ import { getForecastData, getLocation, getWeatherData, getWeatherGif } from './a
 import { cleanData } from './cleanJsonData';
 import { displayForecastData, displayWeatherData } from './DOMFunctions';
 import { errorHandler } from './errorHandling';
-import { getState } from './helperFunctions';
+import { getState, hideLoadingWidget, showLoadingWidget } from './helperFunctions';
 import './reset.css';
 import './style.css';
 
@@ -31,27 +31,32 @@ inputPostalCode.addEventListener('keyup', (e) => {
     }
 });
 
+const btnAlertClose = document.querySelector('#btnCloseAlert');
+btnAlertClose.addEventListener('click', () => {
+    alertContainer.classList.add('hidden');
+});
+
 async function weatherApp() {
     // when button clicked > grab value from input text box
     
     postalCode = inputPostalCode.value;
     inputPostalCode.value = "";
-
-
+    
+    
     // check if value is empty
     if (postalCode !== "") {
         // set user input location 
         showLoadingWidget();
         await setCurrentLocation();
-
+        
         // get weather data with set location data
         let weatherData = await getWeatherData(lat, long);
-
+        
         let forecastData = await getForecastData(lat, long);
-
+        
         let gifAddress =  await getWeatherGif(weatherData.weather[0].description, weatherData.main.temp);
-
-
+        
+        
         // clean up JSON and return only needed data
         let cleanedData = {
             data: cleanData(weatherData),
@@ -82,17 +87,17 @@ async function setCurrentLocation() {
     long = locationData.lon;
 }
 
-function showLoadingWidget() {
-    const weatherApp = document.querySelector('.fieldset');
-    const loadingWidget = document.createElement('img');
+// function showLoadingWidget() {
+//     const weatherApp = document.querySelector('.fieldset');
+//     const loadingWidget = document.createElement('img');
 
-    loadingWidget.id = 'loadingWidget'
-    loadingWidget.classList.add('loadingWidget');
-    loadingWidget.src = "https://media1.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif?cid=bbfc1e49mgk3jbxodjq4l678y0yz8re86kwacdzkm947vdwv&rid=giphy.gif&ct=g" //"https://media4.giphy.com/media/swhRkVYLJDrCE/giphy.gif?cid=bbfc1e495u73r74bqxz2ggjsjf2olp5u2f9tzpaz3dsw3xbl&rid=giphy.gif&ct=g"
-    weatherApp.appendChild(loadingWidget);
-}
+//     loadingWidget.id = 'loadingWidget'
+//     loadingWidget.classList.add('loadingWidget');
+//     loadingWidget.src = "https://media1.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif?cid=bbfc1e49mgk3jbxodjq4l678y0yz8re86kwacdzkm947vdwv&rid=giphy.gif&ct=g" //"https://media4.giphy.com/media/swhRkVYLJDrCE/giphy.gif?cid=bbfc1e495u73r74bqxz2ggjsjf2olp5u2f9tzpaz3dsw3xbl&rid=giphy.gif&ct=g"
+//     weatherApp.appendChild(loadingWidget);
+// }
 
-function hideLoadingWidget() {
-    const loadingWidget = document.querySelector('#loadingWidget');
-    loadingWidget.remove();
-}
+// function hideLoadingWidget() {
+//     const loadingWidget = document.querySelector('#loadingWidget');
+//     loadingWidget.remove();
+// }

@@ -9,6 +9,9 @@ async function getLocation(postCode, countryCode, units) {
         countryCode = countryCode || 'US';
         // fetch coords by postal code
         let Response = await fetch(`https://api.openweathermap.org/geo/1.0/zip?zip=${postCode},${countryCode}&appid=${apiKey}`, {mode: 'cors'});
+        if (Response.status === 404) {
+            throw new Object({code: 422, message: 'Invalid Postal Code'});
+        }
         let Json = await Response.json();
         return Json;
     } catch (err) {

@@ -62,7 +62,7 @@ function getState(zipString) {
   
     /* Ensure we have exactly 5 characters to parse */
     if (zipString.length !== 5) {
-        console.log('Must pass a 5-digit zipcode.');
+        errorHandler({code: 422, message: 'Must pass a 5-digit zipcode.'});
         return;
     }
   
@@ -232,7 +232,7 @@ function getState(zipString) {
     } else {
         st = 'none';
         state = 'none';
-        console.log('No state found matching', zipcode);
+        console.error('No state found matching', zipcode);
     }
   
     return st;
@@ -284,6 +284,21 @@ function getNext5WeekDays() {
     }
 }
   
+function showLoadingWidget() {
+    const weatherApp = document.querySelector('.fieldset');
+    const loadingWidget = document.createElement('img');
+
+    loadingWidget.id = 'loadingWidget'
+    loadingWidget.classList.add('loadingWidget');
+    loadingWidget.src = "https://media1.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif?cid=bbfc1e49mgk3jbxodjq4l678y0yz8re86kwacdzkm947vdwv&rid=giphy.gif&ct=g" //"https://media4.giphy.com/media/swhRkVYLJDrCE/giphy.gif?cid=bbfc1e495u73r74bqxz2ggjsjf2olp5u2f9tzpaz3dsw3xbl&rid=giphy.gif&ct=g"
+    weatherApp.appendChild(loadingWidget);
+}
+
+function hideLoadingWidget() {
+    const loadingWidget = document.querySelector('#loadingWidget');
+    loadingWidget.remove();
+}
+
 export {
     convertToF,
     convertToInches,
@@ -292,4 +307,6 @@ export {
     getState,
     formatTime,
     getNext5WeekDays,
+    showLoadingWidget,
+    hideLoadingWidget
 }
