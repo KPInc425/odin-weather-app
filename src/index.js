@@ -41,10 +41,11 @@ async function weatherApp() {
     
     postalCode = inputPostalCode.value;
     inputPostalCode.value = "";
+
     
     
     // check if value is empty
-    if (postalCode !== "") {
+    if (postalCode.length !== 0) {
         // set user input location 
         showLoadingWidget();
         await setCurrentLocation();
@@ -86,18 +87,3 @@ async function setCurrentLocation() {
     lat = locationData.lat;
     long = locationData.lon;
 }
-
-// function showLoadingWidget() {
-//     const weatherApp = document.querySelector('.fieldset');
-//     const loadingWidget = document.createElement('img');
-
-//     loadingWidget.id = 'loadingWidget'
-//     loadingWidget.classList.add('loadingWidget');
-//     loadingWidget.src = "https://media1.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif?cid=bbfc1e49mgk3jbxodjq4l678y0yz8re86kwacdzkm947vdwv&rid=giphy.gif&ct=g" //"https://media4.giphy.com/media/swhRkVYLJDrCE/giphy.gif?cid=bbfc1e495u73r74bqxz2ggjsjf2olp5u2f9tzpaz3dsw3xbl&rid=giphy.gif&ct=g"
-//     weatherApp.appendChild(loadingWidget);
-// }
-
-// function hideLoadingWidget() {
-//     const loadingWidget = document.querySelector('#loadingWidget');
-//     loadingWidget.remove();
-// }
