@@ -77,6 +77,13 @@ body {
     /* border: 1px solid pink; */
 }
 
+@media (max-width: 768px) {
+    .gridWeather {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .dataContainer {
     position: relative;
     padding: 1rem;

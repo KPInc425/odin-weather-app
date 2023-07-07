@@ -49,17 +49,20 @@ async function getForecastData(lat, long, units) {
 
 async function getWeatherGif(description, temp) {
     try {
-        description = description + " weather";
+        // description = description;
         let currentTimeOfDay = new Date();
         if (temp > 90) {
             console.log('Extreme Hot');
-            description = "Hot as hell! Weather"
+            description = "Hot as hell!"
         } 
 
         if (temp < 32) {
             console.log('Extreme Cold!');
-            description = "Ice Tundra "
+            description = "Ice Tundra"
         }
+
+        console.log('description: ' + description)
+        console.log('CurrentTime: ' + currentTimeOfDay.getHours())
 
         let response = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=0JvtDfunbRZAukBB5R94oBnUtDprGS0i&s=' + description, {mode: 'cors'});
         let json = await response.json();
